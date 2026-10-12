@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+reconstructed_samples.json
+translated_chunks.jsonl
+manifest.json
+prepared_input.json
+translation_inspection.txt
+README.md

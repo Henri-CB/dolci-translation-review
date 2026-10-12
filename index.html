@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Side-by-side comparison of Dolci-Think English and European Portuguese translations.">
+  <title>Dolci-Think | Translation viewer</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <div class="mark">DT</div>
+        <div><h1>Dolci-Think</h1><p>English ↔ European Portuguese</p></div>
+      </div>
+      <label class="import-button" for="jsonFile">Open JSON <input type="file" id="jsonFile" accept=".json,application/json" hidden></label>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Sample selection">
+        <div class="sidebar-title"><strong>Samples</strong><span id="sampleCount">0</span></div>
+        <p id="datasetName" class="dataset-name">No data loaded</p>
+        <nav id="sampleList" class="sample-list" aria-label="Choose sample"></nav>
+      </aside>
+
+      <main class="main" id="mainContent">
+        <div id="empty" class="empty">
+          <h2>No samples loaded</h2>
+          <p>Use <strong>Open JSON</strong> to load your MN5 <code>reconstructed_samples.json</code>, or publish <code>data/samples.json</code> alongside this page.</p>
+        </div>
+
+        <section id="viewer" hidden aria-label="Sample comparison">
+          <div class="heading">
+            <div>
+              <div class="eyebrow" id="samplePosition"></div>
+              <h2 id="sampleName"></h2>
+              <p id="sampleMetadata"></p>
+            </div>
+            <div class="nav-arrows">
+              <button id="prev" type="button" aria-label="Previous sample" title="Previous sample">←</button>
+              <button id="next" type="button" aria-label="Next sample" title="Next sample">→</button>
+            </div>
+          </div>
+          <p id="warning" class="warning" hidden></p>
+          <div class="filters" role="group" aria-label="Show sections">
+            <button type="button" data-filter="all" class="active" aria-pressed="true">All</button>
+            <button type="button" data-filter="think" aria-pressed="false">Reasoning</button>
+            <button type="button" data-filter="main" aria-pressed="false">Answers / main</button>
+          </div>
+          <div class="column-labels">
+            <div><span class="lang en">EN</span><strong>Original</strong></div>
+            <div><span class="lang pt">PT</span><strong>Translation</strong></div>
+          </div>
+          <div id="comparisons" class="comparisons"></div>
+        </section>
+      </main>
+    </div>
+    <footer>Dolci-Think · Translation comparison</footer>
+  </div>
+  <div id="notice" role="status" class="notice" aria-live="polite" hidden></div>
+</body>
+</html>
